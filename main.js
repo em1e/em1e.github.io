@@ -19,7 +19,7 @@ function addLine(text, isCommand = false) {
 
 function setPrompt(text) {
     // Set "portfolio.sh" to green and ">" to white
-    prompt.innerHTML = `<span style='color: #00ff00;'>${text}</span> <span style='color: white;'>></span>`;
+    prompt.innerHTML = `<b style='color: #4f4527;'>${text}</b> <span style='color: #008000;'>></span>`;
 }
 
 function clearTerminal() {
@@ -27,16 +27,12 @@ function clearTerminal() {
 }
 
 function displayWelcomeMessage() {
-    addLine("<br> Welcome to my Portfolio!"); // Add the welcome message with the new class
-    addLine("Type 'help' for a list of available commands.");
+    addLine('<br><h3 style="color: #4c2229;">Welcome to my Portfolio!</h3>'); // Add the welcome message with the new class
+    addLine('Type <b style="color: #4c2229;">help</b> for a list of available commands.');
+    addLine("-------------------------------------------------------------------");
     addLine(""); // Adds an empty line for spacing
+    executeCommand("about");
 }
-
-// function displayWelcomeMessage() {
-//     addLine('<span class="welcome-message">Welcome to my Portfolio!</span>'); // Add the welcome message with a class
-//     addLine("Type 'help' for a list of available commands.");
-//     addLine(""); // Adds an empty line for spacing
-// }
 
 function executeCommand(command) {
     const args = command.trim().split(" ");
@@ -44,20 +40,45 @@ function executeCommand(command) {
 
     switch (cmd) {
         case "help":
-            addLine("Available commands: help, about, clear, projects, contact");
+            addLine('<br><h3 style="color: #cd6858;">Available commands:</h3>');
+            addLine("help       - Display this help message.");
+            addLine("about      - Display information about me.");
+            addLine("projects   - Display a list of my projects.");
+            addLine("contact    - Display my contact information.");
+            addLine("socials    - Display my social media links.");
+            addLine("clear      - Clear the terminal screen.");
+            addLine("");
             break;
         case "about":
-            addLine("I'm a junior software developer with skills in C, C++, Java, JavaScript, and more.");
+            addLine("");
+            addLine('<h1 style="color: #cd6858;">Hey! Mie here</h1>');
+            addLine("<p>Some of you might know me by my real name too, which I'm totally cool with being called. Anything works <3");
+            addLine("");
+            addLine("<p>I'm a 21 yo Software Developer still trying to find their true passion, someone who's typically quite learning-oriented, detail-focused, and always full of creative ideas. Currently, I'm working on my last projects at Hive Helsinki, which I should be done with mid-spring 2025. In my free time I enjoy swimming, cooking, reading, as well as doing anything creative. I love picking up skills, networking, and spending time with my friends playing games. In other words, I'm your typical nerd just hidden in a shell that you might not see through at the first glance.");
+            // addLine("");
+            addLine('<br><h3 style="color: #cd6858;">Skills:</h3>');
+            addLine("C, C++, Java, JavaScript, HTML, CSS, Git, Bash, Shell scripting");
+            addLine("");
             break;
         case "projects":
-            addLine("Projects: <br>");
+            addLine('<br><h3 style="color: #cd6858;">Projects: </h3>');
             addLine('<a href="https://github.com/em1e/42_cub3d" target="_blank">cub3D</a> - A 3D game made in C. <br>');
             addLine('<a href="https://github.com/em1e/oopsies" target="_blank">oopsies</a> - My first 2D game made using SFML and C++. <br>');
             addLine('<a href="https://github.com/em1e/42_so_long" target="_blank">so_long</a> - A 2D game made in C. <br>');
             addLine('<a href="https://github.com/em1e/42_minishell" target="_blank">minishell</a> - Rewritten version of Bash made in C. <br>');
+            addLine("");
             break;
         case "contact":
-            addLine("Contact me via email at example@example.com.");
+            addLine('<br><h3 style="color: #cd6858;">Contact:</h3>');
+            addLine("You can reach me through emi.projects@outlook.com.");
+            addLine("");
+            break;
+        case "socials":
+            addLine('<br><h3 style="color: #cd6858;">Socials:</h3>');
+            addLine('<a href="https://discordapp.com/users/700341252880597095" target="_blank">Discord</a> - DM me if you dare p<p <br>');
+            addLine('<a href="https://github.com/em1e" target="_blank">GitHub</a> - Do check it out <br>');
+            addLine('<a href="https://www.linkedin.com/in/em1e/" target="_blank">LinkedIn</a> - Connect with me if you haven\'t <br>');
+            addLine("");
             break;
         case "clear":
             clearTerminal();
@@ -74,7 +95,7 @@ input.addEventListener("keydown", (e) => {
         if (command) {
             history.push(command);
             historyIndex = history.length;
-            addLine(`<span style='color: #00ff00;'>portfolio.sh</span> <span style='color: white;'>></span> <span style='color: white;'>${command}</span>`, true); // Keep the prompt in green and the command in white
+            addLine(`<b style='color: #4f4527;'>portfolio.sh</b> <span style='color: #008000;'>></span> <span style='color: #008000;'>${command}</span>`, true); // Keep the prompt in green and the command in white
             executeCommand(command);
         }
         input.value = "";
