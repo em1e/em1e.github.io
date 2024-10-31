@@ -1,49 +1,19 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Starter</title>
-    <link rel="stylesheet" href="/style.css">
-  </head>
-  <body>
-    <!-- Menubar -->
-    <div class="section">
-      <div class="navbar-toggle">
-        <div class="sticky">
-          <button type="checkbox" class="button upper-right" data-toggle="collapse">
-              <span class="icon-bar icon-top"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar icon-bottom"></span>
-          </button>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terminal Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="terminal">
+        <div id="terminal-output"></div>
+        <div id="input-container">
+            <span id="prompt">portfolio.sh ></span>
+            <input type="text" id="input" autofocus spellcheck="false" autocomplete="off">
         </div>
-        <div class="navbar" id="navbar">
-            <a href="z.js">HOME</a>
-          <div class="dropdown" id="dropdown">
-            <button class="dropbtn" id="dropbtn">ABOUT</button>
-            <div class="dropdown-content" id="dropdown-content">
-              <a href="#">Work experience</a>
-              <a href="#">Skills</a>
-                <a href="#">Languages</a>
-                <a href="#">Contact me</a>
-            </div>
-          </div>
-          <div class="dropdown" id="dropdown">
-            <button class="dropbtn b" id="dropbtn">PROJECTS</button>
-            <div class="dropdown-content" id="dropdown-content">
-              <a href="#">Home</a>
-              <a href="#">Projects</a>
-              <a href="#">About me</a>
-              <a href="#">Projects</a>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
-    <!-- <div class="container">
-      <h1>Hello, World!</h1>
-      <p>Click and drag to rotate the cube.</p>
-    </div> -->
-    <canvas class="threejs"></canvas>
-    <script type="module" src="/main.js"></script>
-  </body>
+    <script src="main.js"></script>
+</body>
 </html>

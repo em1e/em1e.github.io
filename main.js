@@ -1,66 +1,100 @@
-import * as THREE from 'three';
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+const terminal = document.getElementById("terminal");
+const terminalOutput = document.getElementById("terminal-output");
+const input = document.getElementById("input");
+const prompt = document.getElementById("prompt");
 
-// initialize the scene
-const scene = new THREE.Scene()
+let history = [];
+let historyIndex = -1;
 
-// add objects to the scene
-const cubeGeometry = new THREE.BoxGeometry(1, 1, 1)
-const cubeMaterial = new THREE.MeshBasicMaterial({color: "red"})
+function addLine(text, isCommand = false) {
+    const line = document.createElement("div");
+    line.classList.add("output");
+    if (isCommand) {
+        line.classList.add("command"); // Apply command styling
+    }
+    line.innerHTML = text;
+    terminalOutput.appendChild(line);
+    terminalOutput.scrollTop = terminalOutput.scrollHeight; // Scroll to bottom as new lines are added
+}
 
-const cubeMesh = new THREE.Mesh(cubeGeometry, cubeMaterial);
-const cubeMesh2 = new THREE.Mesh(cubeGeometry, cubeMaterial);
-const cubeMesh3 = new THREE.Mesh(cubeGeometry, cubeMaterial);
+function setPrompt(text) {
+    // Set "portfolio.sh" to green and ">" to white
+    prompt.innerHTML = `<span style='color: #00ff00;'>${text}</span> <span style='color: white;'>></span>`;
+}
 
-const group = new THREE.Group();
-group.add(cubeMesh);
-group.add(cubeMesh2);
-group.add(cubeMesh3);
+function clearTerminal() {
+    terminalOutput.innerHTML = "";
+}
 
-scene.add(group);
+function displayWelcomeMessage() {
+    addLine("<br> Welcome to my Portfolio!"); // Add the welcome message with the new class
+    addLine("Type 'help' for a list of available commands.");
+    addLine(""); // Adds an empty line for spacing
+}
 
-cubeMesh.position.set(1, 0, 0);
-cubeMesh2.position.set(3, 0, 0);
-cubeMesh3.position.set(-1, 0, 0);
+// function displayWelcomeMessage() {
+//     addLine('<span class="welcome-message">Welcome to my Portfolio!</span>'); // Add the welcome message with a class
+//     addLine("Type 'help' for a list of available commands.");
+//     addLine(""); // Adds an empty line for spacing
+// }
 
-cubeMesh.scale.y = 2
-group.scale.y = 2
+function executeCommand(command) {
+    const args = command.trim().split(" ");
+    const cmd = args[0].toLowerCase();
 
-const axesHelper = new THREE.AxesHelper(2)
-scene.add(axesHelper);
+    switch (cmd) {
+        case "help":
+            addLine("Available commands: help, about, clear, projects, contact");
+            break;
+        case "about":
+            addLine("I'm a junior software developer with skills in C, C++, Java, JavaScript, and more.");
+            break;
+        case "projects":
+            addLine("Projects: <br>");
+            addLine('<a href="https://github.com/em1e/42_cub3d" target="_blank">cub3D</a> - A 3D game made in C. <br>');
+            addLine('<a href="https://github.com/em1e/oopsies" target="_blank">oopsies</a> - My first 2D game made using SFML and C++. <br>');
+            addLine('<a href="https://github.com/em1e/42_so_long" target="_blank">so_long</a> - A 2D game made in C. <br>');
+            addLine('<a href="https://github.com/em1e/42_minishell" target="_blank">minishell</a> - Rewritten version of Bash made in C. <br>');
+            break;
+        case "contact":
+            addLine("Contact me via email at example@example.com.");
+            break;
+        case "clear":
+            clearTerminal();
+            break;
+        default:
+            addLine(`<span style="color: red;">Error: command not found: ${cmd}</span>`);
+    }
+}
 
-// initialize the camera
-const camera = new THREE.PerspectiveCamera(
-  75, 
-  window.innerWidth / window.innerHeight,
-  0.1,
-  200)
-camera.position.z = 5
-camera.position.y = 1
+// Input event listener
+input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+        const command = input.value.trim();
+        if (command) {
+            history.push(command);
+            historyIndex = history.length;
+            addLine(`<span style='color: #00ff00;'>portfolio.sh</span> <span style='color: white;'>></span> <span style='color: white;'>${command}</span>`, true); // Keep the prompt in green and the command in white
+            executeCommand(command);
+        }
+        input.value = "";
+    } else if (e.key === "ArrowUp") {
+        e.preventDefault();
+        if (historyIndex > 0) {
+            historyIndex--;
+            input.value = history[historyIndex];
+        }
+    } else if (e.key === "ArrowDown") {
+        e.preventDefault();
+        if (historyIndex < history.length - 1) {
+            historyIndex++;
+            input.value = history[historyIndex];
+        } else {
+            input.value = "";
+        }
+    }
+});
 
-// initialize the renderer
-const canvas = document.querySelector('canvas.threejs')
-const renderer = new THREE.WebGLRenderer({
-  canvas: canvas,
-  antialias: true,
-})
-renderer.setSize(window.innerWidth, window.innerHeight);
-renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-
-// initialize the controls
-const controls = new OrbitControls(camera, canvas);
-controls.enableDamping = true;
-controls.autoRotate = true;
-
-window.addEventListener('resize', () =>{
-  camera.aspect = window.innerWidth / window.innerHeight;
-  camera.updateProjectionMatrix()
-  renderer.setSize(window.innerWidth, window.innerHeight);
-})
-
-const renderloop = () => {
-  controls.update();
-  renderer.render(scene, camera);
-  requestAnimationFrame(renderloop);
-};
-renderloop();
+// Initialize prompt and display initial output
+setPrompt("portfolio.sh");
+displayWelcomeMessage(); // Display the welcome message on load

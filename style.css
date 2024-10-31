@@ -1,181 +1,96 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: monospace;
+}
+
 body {
-  margin: 0;
-  overflow: hidden;
-}
-
-/* GENERAL */
-.section {
-  background: transparent;
-  position: fixed;
-  top: 0;
-  right: 0;
-  z-index: 9999;
-}
-
-/* small screens */
-@media (max-width:670px) {
-  .section {
-    width: 100%;
-  }
-  .navbar {
-    display: inline-flex;
-    justify-content: center;
-    width: 100%;
+    background-color: black;
+    color: #00ff00;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 100vh;
     overflow: hidden;
-    background-color: #303030;
-  }
-  .button {
-    display: none;
-  }
-  /* #onclick:target {
-    display: none;
-  } */
-
-  .dropdown:active .dropdown-content {
-    display: block;
-  }
-  
-  /* NAVBAR DROPDOWN HOVER*/
-  
-  #dropbtn:active, #navbar a:active {
-    background-color: #008b8b;
-    /* border-radius: 8px; */
-  }
-  
-  #dropdown-content:checked a:active {
-    background-color: #ddd;
-    /* border-radius: 0px; */
-    color: red;
-  }
 }
 
-/* big or full screens */
-@media (min-width:671px) {
-  .section {
-    width: 100%;
-    display: inline-flex;
-    justify-content: end;
-  }
-  .navbar {
-    display: none;
-    /* border-radius: 8px; */
-    width: 100%;
+/* Terminal container */
+#terminal {
+    width: 50%;
+    max-width: 600px;
+    max-height: 100vh; /* Limit the maximum height */
+    background: black;
+    padding: 0em 2em 2em 2em;
+    display: flex;
+    flex-direction: column;
+    /* gap: 5px; */
     overflow: hidden;
-    background-color: #303030;
-  }
-  .navbar-toggle:hover .navbar {
-    display: block;
-    margin-right: 80px;
-  }
+    margin-left: 20px; /* Added margin to shift the terminal to the right */
+}
+/* padding: 25px 50px 75px 100px;
+top padding is 25px
+right padding is 50px
+bottom padding is 75px
+left padding is 100px */
+
+/* Terminal output grows with content */
+#terminal-output {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    max-height: 100%; /* Ensures scrolling when content overflows */
 }
 
-/* BUTTON START */
-.button {     
-  background-color: #008b8b;  
-  border-radius: 8px;  
-  margin: 10px;   
+/* Input container positioned at the bottom */
+#input-container {
+    display: flex;
+    align-items: center;
+    /* padding-top: 10px; */
+    flex-shrink: 0;
+	margin: 10px 0px 0px 10px;
 }
 
-.icon-bar {
-  display: block;
-  padding: 2px;
-  margin: 2px;
-  border-radius: 4px;
-  background-color: #F8F0E3;
-  width: 25px;
-  height: 5px;
+/* Ensure prompt styling matches output */
+#prompt {
+    color: #00ff00;
+	/* color: white; */
+    margin-right: 8px;
+    line-height: 1.5; /* Consistent line height */
+    font-size: 1em; /* Ensure size matches output */
 }
 
-.icon-top {
-  margin-top: 5px;
+/* Input styling */
+#input {
+    background: transparent;
+    color: white;
+    border: none;
+    outline: none;
+    flex-grow: 1;
+    font-size: 1em; /* Match font size with prompt */
+    line-height: 1.5; /* Consistent line height */
 }
 
-.icon-bottom {
-  margin-bottom: 5px;
+/* Output styling for uniform appearance */
+.output {
+    /* margin-left: 10px; */
+    color: #00ff00;
+    line-height: 1.5; /* Consistent line height with prompt */
+    font-size: 1em; /* Ensure size matches prompt and input */
+    /* margin-top: 5px; Add spacing between output lines */
+	margin: 5px 10px; /* Adjusts spacing between output lines */
 }
 
-.upper-right {
-  position: fixed;
-  right: 0;
+/* New CSS class for the welcome message */
+.welcome-message {
+    margin-top: 200px; /* Adjust this value for more or less space */
+    font-weight: bold; /* Makes the text bold */
 }
 
-/* NAVBAR CONTENT */
-
-.navbar a {
-  float: left;
-  font-size: 16px;
-  color: white;
-  text-align: center;
-  padding: 10px 50px;
-  text-decoration: none;
-  margin-left: 10px;
-  margin-right: 5px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+/* Add margin to separate commands from outputs */
+.command {
+    margin-bottom: 5px; /* Space between command input and output */
+	margin-top: 10px; /* Add spacing between output lines */
+	color: white;
 }
-
-/* NAVBAR DROPDOWNS */
-
-.dropdown {
-  float: left;
-  margin-left: 5px;
-  margin-right: 5px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-.b {
-  margin-right: 10px;
-}
-
-.dropdown .dropbtn {
-  font-size: 16px;  
-  border: none;
-  outline: none;
-  color: white;
-  padding: 10px 50px;
-  background-color: inherit;
-  font-family: inherit;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  width: 176px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0);
-  z-index: 1;
-  margin-top: 3px;
-  /* border-radius: 8px; */
-}
-
-.dropdown-content a {
-  float: none;
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
-  margin: 0;
-}
-
-/* hover for bigger screens
-
-@media (min-width:671px) {
-
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
-  
-  .dropbtn:hover, .navbar a:hover {
-    background-color: #008b8b;
-    border-radius: 8px;
-  }
-  
-  .dropdown-content a:hover {
-    background-color: #ddd;
-    border-radius: 0px;
-    color: red;
-  }
-}  */
-
