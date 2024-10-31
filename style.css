@@ -16,6 +16,40 @@ body {
     overflow: hidden;
 }
 
+/* For WebKit-based browsers (Chrome, Safari) */
+#terminal-output::-webkit-scrollbar {
+    display: none;
+}
+
+/* For Firefox */
+#terminal-output {
+    scrollbar-width: none;
+}
+
+/* General container styling */
+#terminal-output {
+    overflow-y: scroll;
+}
+
+/* Style the sliding panel */
+.project-info {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Positioned off-screen initially */
+    width: 50%;
+    height: 100%;
+    background-color: #1e1e1e;
+    color: #fff;
+    padding: 20px;
+    overflow-y: auto;
+    transition: right 0.3s ease;
+    z-index: 100; /* Ensure it appears above other elements */
+}
+
+.project-info.visible {
+    right: 0; /* Slide it into view */
+}
+
 /* Terminal container */
 #terminal {
     width: 50%;
@@ -83,4 +117,14 @@ body {
     margin-bottom: 5px;
 	margin-top: 10px;
 	color: #008000;
+}
+
+#project_button {
+    background-color: #4c2229;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    /* margin-top: 20px; */
 }

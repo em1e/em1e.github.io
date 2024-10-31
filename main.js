@@ -10,15 +10,14 @@ function addLine(text, isCommand = false) {
     const line = document.createElement("div");
     line.classList.add("output");
     if (isCommand) {
-        line.classList.add("command"); // Apply command styling
+        line.classList.add("command");
     }
     line.innerHTML = text;
     terminalOutput.appendChild(line);
-    terminalOutput.scrollTop = terminalOutput.scrollHeight; // Scroll to bottom as new lines are added
+    terminalOutput.scrollTop = terminalOutput.scrollHeight;
 }
 
 function setPrompt(text) {
-    // Set "portfolio.sh" to green and ">" to white
     prompt.innerHTML = `<b style='color: #4f4527;'>${text}</b> <span style='color: #008000;'>></span>`;
 }
 
@@ -26,11 +25,32 @@ function clearTerminal() {
     terminalOutput.innerHTML = "";
 }
 
+function openProjectInfo(content, link) {
+    const projectInfo = document.getElementById("project-info");
+    projectInfo.querySelector(".project-content").innerHTML = content;
+    projectInfo.querySelector(".project-link").href = link;
+    projectInfo.classList.add("visible"); // Add visible to slide it in
+}
+
+function closeProjectInfo() {
+    document.getElementById("project-info").classList.remove("visible"); // Remove visible to slide out
+}
+
+function openProjectInfo(content, link) {
+    const projectInfo = document.getElementById("project-info");
+    projectInfo.querySelector(".project-content").innerHTML = content;
+    
+    const projectLink = projectInfo.querySelector(".project-link");
+    projectLink.href = link;
+    
+    projectInfo.classList.add("visible"); // Add visible to slide it in
+}
+
 function displayWelcomeMessage() {
-    addLine('<br><h3 style="color: #4c2229;">Welcome to my Portfolio!</h3>'); // Add the welcome message with the new class
+    addLine('<br><h3 style="color: #4c2229;">Welcome to my Portfolio!</h3>');
     addLine('Type <b style="color: #4c2229;">help</b> for a list of available commands.');
     addLine("-------------------------------------------------------------------");
-    addLine(""); // Adds an empty line for spacing
+    addLine("");
     executeCommand("about");
 }
 
@@ -41,31 +61,30 @@ function executeCommand(command) {
     switch (cmd) {
         case "help":
             addLine('<br><h3 style="color: #cd6858;">Available commands:</h3>');
-            addLine("help       - Display this help message.");
-            addLine("about      - Display information about me.");
-            addLine("projects   - Display a list of my projects.");
-            addLine("contact    - Display my contact information.");
-            addLine("socials    - Display my social media links.");
-            addLine("clear      - Clear the terminal screen.");
+            addLine('<span style="color: #2e5e4e;">help </span>------ Displays this help message.');
+            addLine('<span style="color: #2e5e4e;">about </span>----- Read info about me.');
+            addLine('<span style="color: #2e5e4e;">projects </span>-- View a list of my projects.');
+            addLine('<span style="color: #2e5e4e;">contact </span>--- Get my contact information.');
+            addLine('<span style="color: #2e5e4e;">socials </span>--- Check out my social media links.');
+            addLine('<span style="color: #2e5e4e;">clear </span>----- Clear the terminal screen.');
             addLine("");
             break;
         case "about":
             addLine("");
             addLine('<h1 style="color: #cd6858;">Hey! Mie here</h1>');
-            addLine("<p>Some of you might know me by my real name too, which I'm totally cool with being called. Anything works <3");
+            addLine("Some of you might know me by my real name too, which I'm totally cool with being called. Anything works <3");
             addLine("");
-            addLine("<p>I'm a 21 yo Software Developer still trying to find their true passion, someone who's typically quite learning-oriented, detail-focused, and always full of creative ideas. Currently, I'm working on my last projects at Hive Helsinki, which I should be done with mid-spring 2025. In my free time I enjoy swimming, cooking, reading, as well as doing anything creative. I love picking up skills, networking, and spending time with my friends playing games. In other words, I'm your typical nerd just hidden in a shell that you might not see through at the first glance.");
-            // addLine("");
+            addLine("I'm a 21 yo Software Developer still trying to find their true passion, someone who's typically quite learning-oriented, detail-focused, and always full of creative ideas. Currently, I'm working on my last projects at Hive Helsinki, which I should be done with mid-spring 2025. In my free time I enjoy swimming, cooking, reading, as well as doing anything creative. I love picking up skills, networking, and spending time with my friends playing games. In other words, I'm your typical nerd just hidden in a shell that you might not see through at the first glance.");
             addLine('<br><h3 style="color: #cd6858;">Skills:</h3>');
             addLine("C, C++, Java, JavaScript, HTML, CSS, Git, Bash, Shell scripting");
             addLine("");
             break;
         case "projects":
             addLine('<br><h3 style="color: #cd6858;">Projects: </h3>');
-            addLine('<a href="https://github.com/em1e/42_cub3d" target="_blank">cub3D</a> - A 3D game made in C. <br>');
-            addLine('<a href="https://github.com/em1e/oopsies" target="_blank">oopsies</a> - My first 2D game made using SFML and C++. <br>');
-            addLine('<a href="https://github.com/em1e/42_so_long" target="_blank">so_long</a> - A 2D game made in C. <br>');
-            addLine('<a href="https://github.com/em1e/42_minishell" target="_blank">minishell</a> - Rewritten version of Bash made in C. <br>');
+            addLine('<div id="project_button" onclick="openProjectInfo(`<h2>cub3D</h2><p>Details about the 3D game...</p>`, `https://github.com/em1e/42_cub3d`)">cub3D</div>');
+            addLine('<div id="project_button" onclick="openProjectInfo(`<h2>oopsies</h2><p>Details about the 2D game...</p>`, `https://github.com/em1e/oopsies`)">oopsies</div>');
+            addLine('<div id="project_button" onclick="openProjectInfo(`<h2>so_long</h2><p>Details about the 2D game...</p>`, `https://github.com/em1e/42_so_long`)">so_long</div>');
+            addLine('<div id="project_button" onclick="openProjectInfo(`<h2>minishell</h2><p>Details about the rewritten version of Bash made in c...</p>`, `https://github.com/em1e/42_minishell`)">minishell</div>');
             addLine("");
             break;
         case "contact":
@@ -116,6 +135,5 @@ input.addEventListener("keydown", (e) => {
     }
 });
 
-// Initialize prompt and display initial output
 setPrompt("portfolio.sh");
-displayWelcomeMessage(); // Display the welcome message on load
+displayWelcomeMessage();
