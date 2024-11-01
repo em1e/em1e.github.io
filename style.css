@@ -44,6 +44,7 @@ body {
     overflow-y: auto;
     transition: right 0.3s ease;
     z-index: 100; /* Ensure it appears above other elements */
+    box-shadow: -3px 0px 10px rgba(0, 0, 0, 0.5);
 }
 
 .project-info.visible {
@@ -76,7 +77,7 @@ body {
     display: flex;
     align-items: center;
     flex-shrink: 0;
-	margin: 10px 0px 0px 10px;
+    margin: 10px 0px 0px 10px;
 }
 
 /* Ensure prompt styling matches output */
@@ -103,7 +104,7 @@ body {
     color: #6f4030;
     line-height: 1.5;
     font-size: 1em;
-	margin: 5px 10px;
+    margin: 5px 10px;
 }
 
 /* New CSS class for the welcome message */
@@ -115,8 +116,8 @@ body {
 /* Add margin to separate commands from outputs */
 .command {
     margin-bottom: 5px;
-	margin-top: 10px;
-	color: #008000;
+    margin-top: 10px;
+    color: #008000;
 }
 
 #project_button {
@@ -127,4 +128,115 @@ body {
     border-radius: 5px;
     cursor: pointer;
     /* margin-top: 20px; */
+}
+
+#project_button:hover {
+    background-color: #cd6858; /* Change the background color on hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Add a shadow effect on hover */
+}
+
+.hidden {
+    display: none;
+}
+
+/* Project Info Popup Styling */
+.project-info {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 50%;
+    height: 100%;
+    background-color: #1e1e1e;
+    color: #fff;
+    padding: 20px;
+    overflow-y: auto;
+    transition: right 0.3s ease;
+    z-index: 100;
+    box-shadow: -3px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.project-info.visible {
+    right: 0;
+}
+
+.project-content h2 {
+    margin-bottom: 10px; /* Space between header and paragraph */
+}
+
+.project-content p {
+    margin-bottom: 20px; /* Additional paragraph spacing */
+    line-height: 1.6;
+}
+
+.project-video {
+    margin: 20px 0; /* Space around video */
+    width: 100%;
+}
+
+.project-video-caption {
+    /* font-size: 1rem; */
+    color: #ddd;
+    margin-bottom: 10px;
+}
+
+.project-link {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 15px;
+    background-color: #4c2229; /* Button color */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.project-link:hover {
+    background-color: #6f4030; /* Hover color */
+}
+
+button.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.2rem;
+    padding: 8px 12px;
+    background-color: #6f4030;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button.close-btn:hover {
+    background-color: #4c2229;
+}
+
+/* Media Query for mobile and tablet compatibility */
+@media (max-width: 768px) { /* For tablets and mobile devices */
+    /* Adjust the project-info popup for smaller screens */
+    .project-info {
+        width: 100%; /* Full width for mobile */
+        right: -100%; /* Keep it off-screen until activated */
+    }
+
+    /* Terminal styling adjustments */
+    #terminal {
+        width: 100%; /* Full width for mobile */
+        max-width: none; /* Remove the max-width constraint */
+        padding: 10px; /* Adjust padding for smaller screens */
+        margin-left: 0; /* No margin left on mobile */
+    }
+
+    /* Make sure the font size is readable on smaller devices */
+    .project-content h1,
+    .project-content p,
+    .project-video-caption {
+        font-size: 1.2em; /* Increase font size for better readability */
+    }
+}
+
+/* Optional: Adjustments for larger screens if needed */
+@media (min-width: 769px) {
+    /* Original styles can remain the same */
 }
