@@ -152,7 +152,6 @@ function executeCommand(command) {
             addLine('<br><h3 style="color: #4c2229;">Socials:</h3>');
             addLine('<a href="https://discordapp.com/users/700341252880597095" target="_blank">Discord</a> - DM me if you dare! (swear I don\'t bite) <br>');
             addLine('<a href="https://github.com/em1e" target="_blank">GitHub</a> - Do check it out. <br>');
-            addLine('<a href="https://www.linkedin.com/in/em1e/" target="_blank">LinkedIn</a> - Connect with me if you haven\'t. <br>');
             addLine("");
             break;
         case "clear":
