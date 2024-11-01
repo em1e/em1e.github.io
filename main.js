@@ -25,15 +25,57 @@ function clearTerminal() {
     terminalOutput.innerHTML = "";
 }
 
-function openProjectInfo(content, link) {
+function openProjectInfo(content, link, videoType) {
     const projectInfo = document.getElementById("project-info");
     projectInfo.querySelector(".project-content").innerHTML = content;
-    projectInfo.querySelector(".project-link").href = link;
-    projectInfo.classList.add("visible"); // Add visible to slide it in
+    
+    const projectLink = projectInfo.querySelector(".project-link");
+    projectLink.href = link;
+
+    // Remove any existing video element
+    const existingVideo = projectInfo.querySelector("video");
+    if (existingVideo) {
+        existingVideo.remove();
+    }
+
+    // Create the video element based on the videoType flag
+    let videoElement = document.createElement("video");
+    videoElement.setAttribute("controls", "controls");
+    videoElement.classList.add("video-js", "vjs-default-skin");
+    videoElement.style.width = "100%"; // Adjust width as needed
+
+    // Set the appropriate video source based on the flag
+    switch (videoType) {
+        case "cub3D":
+            videoElement.src = "cub3d_video.mp4";
+            videoElement.poster = "https://path-to-cub3D-poster.jpg";
+            break;
+        case "oopsies":
+            videoElement.src = "https://path-to-oopsies-video.mp4";
+            videoElement.poster = "https://path-to-oopsies-poster.jpg";
+            break;
+        case "so_long":
+            videoElement.src = "https://path-to-so_long-video.mp4";
+            videoElement.poster = "https://path-to-so_long-poster.jpg";
+            break;
+        case "minishell":
+            videoElement.src = "https://path-to-minishell-video.mp4";
+            videoElement.poster = "https://path-to-minishell-poster.jpg";
+            break;
+        default:
+            videoElement = null; // No video for unknown type
+    }
+
+    // Append the video element if one was created
+    if (videoElement) {
+        projectInfo.querySelector(".project-content").appendChild(videoElement);
+    }
+
+    projectInfo.classList.add("visible");
 }
 
 function closeProjectInfo() {
-    document.getElementById("project-info").classList.remove("visible"); // Remove visible to slide out
+    document.getElementById("project-info").classList.remove("visible");
 }
 
 function openProjectInfo(content, link) {
@@ -43,12 +85,12 @@ function openProjectInfo(content, link) {
     const projectLink = projectInfo.querySelector(".project-link");
     projectLink.href = link;
     
-    projectInfo.classList.add("visible"); // Add visible to slide it in
+    projectInfo.classList.add("visible");
 }
 
 function displayWelcomeMessage() {
-    addLine('<br><h3 style="color: #4c2229;">Welcome to my Portfolio!</h3>');
-    addLine('Type <b style="color: #4c2229;">help</b> for a list of available commands.');
+    addLine('<br><h3>Welcome to my Portfolio!</h3>');
+    addLine('Type <b style="color: #cd6858;">help</b> for a list of available commands.');
     addLine("-------------------------------------------------------------------");
     addLine("");
     executeCommand("about");
@@ -81,10 +123,10 @@ function executeCommand(command) {
             break;
         case "projects":
             addLine('<br><h3 style="color: #cd6858;">Projects: </h3>');
-            addLine('<div id="project_button" onclick="openProjectInfo(`<h2>cub3D</h2><p>Details about the 3D game...</p>`, `https://github.com/em1e/42_cub3d`)">cub3D</div>');
-            addLine('<div id="project_button" onclick="openProjectInfo(`<h2>oopsies</h2><p>Details about the 2D game...</p>`, `https://github.com/em1e/oopsies`)">oopsies</div>');
-            addLine('<div id="project_button" onclick="openProjectInfo(`<h2>so_long</h2><p>Details about the 2D game...</p>`, `https://github.com/em1e/42_so_long`)">so_long</div>');
-            addLine('<div id="project_button" onclick="openProjectInfo(`<h2>minishell</h2><p>Details about the rewritten version of Bash made in c...</p>`, `https://github.com/em1e/42_minishell`)">minishell</div>');
+            addLine('<div id="project_button" onclick="openProjectInfo(`<h2>cub3D</h2><p>Details about the 3D game...</p>`, `https://github.com/em1e/42_cub3d`, `cub3D`)">cub3D</div>');
+            addLine('<div id="project_button" onclick="openProjectInfo(`<h2>oopsies</h2><p>Details about the 2D game...</p>`, `https://github.com/em1e/oopsies`, `oopsies`)">oopsies</div>');
+            addLine('<div id="project_button" onclick="openProjectInfo(`<h2>so_long</h2><p>Details about the 2D game...</p>`, `https://github.com/em1e/42_so_long`, `so_long`)">so_long</div>');
+            addLine('<div id="project_button" onclick="openProjectInfo(`<h2>minishell</h2><p>Details about the Bash rewrite...</p>`, `https://github.com/em1e/42_minishell`, `minishell`)">minishell</div>');
             addLine("");
             break;
         case "contact":
