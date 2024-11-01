@@ -130,7 +130,7 @@ function executeCommand(command) {
             addLine('<h1 style="color: #cd6858;">Hey! Mie here</h1>');
             addLine("Some of you might know me by my real name too, which I'm totally cool with being called. Anything works <3");
             addLine("");
-            addLine("I'm a 21 yo Software Developer still trying to find their true passion; someone who's typically quite learning-oriented, detail-focused, and always full of creative ideas. Currently, I'm working on my last projects at Hive Helsinki, which I should be done by mid-spring 2025. In my free time I enjoy swimming, cooking, reading, as well as doing anything creative. I love picking up skills, networking, and spending time with my friends playing games. In other words, I'm your typical nerd just hidden in a shell that you might not see through at the first glance.");
+            addLine("I'm a 21 yo Software Developer still trying to find their true passion; someone who's typically quite learning-oriented, detail-focused, and always full of creative ideas. Currently, I'm working on my last projects at Hive, which I should be done by mid-spring 2025. In my free time I enjoy swimming, cooking, reading, as well as doing anything creative. I love picking up skills, networking, and spending time with my friends playing games. In other words, I'm your typical nerd just hidden in a shell that you might not see through at the first glance.");
             addLine('<br><h3 style="color: #4c2229;">Skills:</h3>');
             addLine("C, C++, Java, JavaScript, HTML, CSS, Git, Bash, Shell scripting");
             addLine("");
