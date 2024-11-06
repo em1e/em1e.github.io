@@ -138,9 +138,9 @@ function executeCommand(command) {
         case "projects":
             addLine('<br><h3 style="color: #4c2229;">Projects: </h3>');
             addLine('<div id="project_button" onclick="openProjectInfo(`<h2>cub3D</h2><p>Details about the 3D game...</p>`, `https://github.com/em1e/42_cub3d`, `cub3D`)">cub3D</div>');
-            addLine('<div id="project_button" onclick="openProjectInfo(`<h2>oopsies</h2><p>Details about the 2D game...</p>`, `https://github.com/em1e/oopsies`, `oopsies`)">oopsies</div>');
-            addLine('<div id="project_button" onclick="openProjectInfo(`<h2>so_long</h2><p>Details about the 2D game...</p>`, `https://github.com/em1e/42_so_long`, `so_long`)">so_long</div>');
-            addLine('<div id="project_button" onclick="openProjectInfo(`<h2>minishell</h2><p>Details about the Bash rewrite...</p>`, `https://github.com/em1e/42_minishell`, `minishell`)">minishell</div>');
+            //addLine('<div id="project_button" onclick="openProjectInfo(`<h2>oopsies</h2><p>Details about the 2D game...</p>`, `https://github.com/em1e/oopsies`, `oopsies`)">oopsies</div>');
+            //addLine('<div id="project_button" onclick="openProjectInfo(`<h2>so_long</h2><p>Details about the 2D game...</p>`, `https://github.com/em1e/42_so_long`, `so_long`)">so_long</div>');
+            //addLine('<div id="project_button" onclick="openProjectInfo(`<h2>minishell</h2><p>Details about the Bash rewrite...</p>`, `https://github.com/em1e/42_minishell`, `minishell`)">minishell</div>');
             addLine("");
             break;
         case "contact":
