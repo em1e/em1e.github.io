@@ -130,17 +130,17 @@ function executeCommand(command) {
         case "about":
             addLine("");
             addLine('<h2 style="color: #cd6858;">About me:</h2>');
-            addLine("Hey there! 👋 I'm Vilja, a 21 year old software engineering student at Hive Helsinki, who's still trying to find their true passion in tech. There I learned C and C++ through multiple complex projects, and the unique peer to peer model has given me a lot of experience with performing code reviews, asking the right questions, team and project management as well as allowed me to share what I have learned with others.");
+            addLine("Hey there! 👋 I'm Vilja, a 21 year old software engineering student at Hive Helsinki. There I learned C and C++ through multiple complex projects, and the unique peer to peer model has given me a lot of experience with code reviews, asking the right questions, team and project management as well as allowed me to share what I have learned with others.");
             addLine('<br><h3 style="color: #4c2229;">Skills:</h3>');
             addLine("C, C++, Java, JavaScript, HTML, CSS, Git, Bash, Shell scripting");
             addLine("");
             break;
         case "projects":
             addLine('<br><h3 style="color: #4c2229;">Projects: </h3>');
-            addLine('<div id="project_button" onclick="openProjectInfo(`<h2>cub3D</h2><p>Details about the 3D game...</p>`, `https://github.com/em1e/42_cub3d`, `cub3D`)">cub3D</div>');
             addLine('<div id="project_button" onclick="openProjectInfo(`<h2>ft_irc</h2><p>Details about the irc server...</p>`, `https://github.com/em1e/42_ft_irc`, `ft_irc`)">ft_irc</div>');
-            //addLine('<div id="project_button" onclick="openProjectInfo(`<h2>so_long</h2><p>Details about the 2D game...</p>`, `https://github.com/em1e/42_so_long`, `so_long`)">so_long</div>');
-            //addLine('<div id="project_button" onclick="openProjectInfo(`<h2>minishell</h2><p>Details about the Bash rewrite...</p>`, `https://github.com/em1e/42_minishell`, `minishell`)">minishell</div>');
+            addLine('<div id="project_button" onclick="openProjectInfo(`<h2>cub3D</h2><p>Details about the 3D game...</p>`, `https://github.com/em1e/42_cub3d`, `cub3D`)">cub3D</div>');
+            addLine('<div id="project_button" onclick="openProjectInfo(`<h2>so_long</h2><p>Details about the 2D game...</p>`, `https://github.com/em1e/42_so_long`, `so_long`)">so_long</div>');
+            addLine('<div id="project_button" onclick="openProjectInfo(`<h2>minishell</h2><p>Details about the Bash remake...</p>`, `https://github.com/em1e/42_minishell`, `minishell`)">minishell</div>');
             addLine("");
             break;
         case "contact":
