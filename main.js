@@ -55,8 +55,8 @@ function openProjectInfo(content, link, videoType) {
     
     let videoElement = document.createElement("video");
     videoElement.setAttribute("controls", "controls");
-    videoElement.setAttribute("autoplay", "autoplay");
-    videoElement.setAttribute("loop", "loop");
+    // videoElement.setAttribute("autoplay", "autoplay");
+    // videoElement.setAttribute("loop", "loop");
     videoElement.setAttribute("muted", "muted");
     videoElement.classList.add("project-video");
     videoElement.style.width = "100%"; // Adjust width as needed
@@ -69,18 +69,18 @@ function openProjectInfo(content, link, videoType) {
             description.textContent = "Cub3D is all about bringing that classic raycasting game feeling to life. It\’s a fun way to dive into the world of graphic design while figuring out how math fits into computer graphics. I did a lot of research beforehand, which helped us later on to make a 2D space feel like a 3D world more easily. That being said I'd argue cub3D isn\’t just any project; it\’s a creative playground where coding and math team up to create an awesome interactive experience!";
             videoCaption.textContent = "A Gameplay video demonstrating core mechanics:";
             break;
-        case "oopsies":
-            videoElement.src = "https://github.com/em1e/em1e.github.io/raw/main/oopsies_video.mp";
-            description.textContent = "B Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent in tincidunt lectus. Nullam pharetra sem eu felis fermentum, a auctor augue vulputate. Integer scelerisque neque sit amet arcu viverra, sed vulputate turpis auctor. Proin non mi neque. Sed id sem nec velit lacinia ullamcorper. Integer pretium neque a malesuada efficitur.";
-            videoCaption.textContent = "B Gameplay video demonstrating core mechanics:";
+        case "ft_irc":
+            videoElement.src = "https://github.com/em1e/em1e.github.io/raw/main/ft_irc_video.mp4";
+            description.textContent = "ft_irc is a project where me and two other students worked together to create a fully functioning irc server, according to the RFC 1459 proticol.";
+            videoCaption.textContent = "Here is a video demonstrating core mechanics:";
             break;
         case "so_long":
-            videoElement.src = "https://github.com/em1e/em1e.github.io/raw/main/so_long_video.mp";
+            videoElement.src = "https://github.com/em1e/em1e.github.io/raw/main/so_long_video.mp4";
             description.textContent = "C Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent in tincidunt lectus. Nullam pharetra sem eu felis fermentum, a auctor augue vulputate. Integer scelerisque neque sit amet arcu viverra, sed vulputate turpis auctor. Proin non mi neque. Sed id sem nec velit lacinia ullamcorper. Integer pretium neque a malesuada efficitur.";
             videoCaption.textContent = "C Gameplay video demonstrating core mechanics:";
             break;
         case "minishell":
-            videoElement.src = "https://github.com/em1e/em1e.github.io/raw/main/minishell_video.mp";
+            videoElement.src = "https://github.com/em1e/em1e.github.io/raw/main/minishell_video.mp4";
             description.textContent = "D Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent in tincidunt lectus. Nullam pharetra sem eu felis fermentum, a auctor augue vulputate. Integer scelerisque neque sit amet arcu viverra, sed vulputate turpis auctor. Proin non mi neque. Sed id sem nec velit lacinia ullamcorper. Integer pretium neque a malesuada efficitur.";
             videoCaption.textContent = "D Gameplay video demonstrating core mechanics:";
             break;
@@ -103,11 +103,13 @@ function closeProjectInfo() {
 }
 
 function displayWelcomeMessage() {
-    addLine('<br><h3>Welcome to my Portfolio!</h3>');
-    addLine('Type <b style="color: #cd6858;">help</b> for a list of available commands.');
+    addLine('<br><h2>Welcome to my Portfolio!</h2>');
+    addLine('<h3>Type <b style="color: #cd6858;">help</b> for a list of available commands.</h3>');
     addLine("-------------------------------------------------------------------");
     addLine("");
     executeCommand("about");
+    executeCommand("help");
+    addLine("-------------------------------------------------------------------");
 }
 
 function executeCommand(command) {
@@ -118,7 +120,7 @@ function executeCommand(command) {
         case "help":
             addLine('<br><h3 style="color: #4c2229;">Available commands:</h3>');
             addLine('<span style="color: #2e5e4e;">help </span>------ Displays this help message.');
-            addLine('<span style="color: #2e5e4e;">about </span>----- Displays the initial about message.');
+            addLine('<span style="color: #2e5e4e;">about </span>----- Displays the about message.');
             addLine('<span style="color: #2e5e4e;">projects </span>-- View a list of my projects.');
             addLine('<span style="color: #2e5e4e;">contact </span>--- Get my contact information.');
             addLine('<span style="color: #2e5e4e;">socials </span>--- Check out my social medias.');
@@ -127,8 +129,8 @@ function executeCommand(command) {
             break;
         case "about":
             addLine("");
-            addLine('<h1 style="color: #cd6858;">Hey! Vilja here</h1>');
-            addLine("I'm a 21 year old Junior Software Engineer still trying to find their true passion; someone who's typically quite learning-oriented, detail-focused, and always full of creative ideas. Currently, I'm working on my last projects at Hive Helsinki, which I should be done by mid-spring 2025. In my free time I enjoy swimming, cooking, reading, as well as doing anything creative. I love picking up skills, networking, and spending time with my friends playing games.");
+            addLine('<h2 style="color: #cd6858;">About me:</h2>');
+            addLine("Hey there! 👋 I'm Vilja, a 21 year old software engineering student at Hive Helsinki, who's still trying to find their true passion in tech. There I learned C and C++ through multiple complex projects, and the unique peer to peer model has given me a lot of experience with performing code reviews, asking the right questions, team and project management as well as allowed me to share what I have learned with others.");
             addLine('<br><h3 style="color: #4c2229;">Skills:</h3>');
             addLine("C, C++, Java, JavaScript, HTML, CSS, Git, Bash, Shell scripting");
             addLine("");
@@ -136,7 +138,7 @@ function executeCommand(command) {
         case "projects":
             addLine('<br><h3 style="color: #4c2229;">Projects: </h3>');
             addLine('<div id="project_button" onclick="openProjectInfo(`<h2>cub3D</h2><p>Details about the 3D game...</p>`, `https://github.com/em1e/42_cub3d`, `cub3D`)">cub3D</div>');
-            //addLine('<div id="project_button" onclick="openProjectInfo(`<h2>oopsies</h2><p>Details about the 2D game...</p>`, `https://github.com/em1e/oopsies`, `oopsies`)">oopsies</div>');
+            addLine('<div id="project_button" onclick="openProjectInfo(`<h2>ft_irc</h2><p>Details about the irc server...</p>`, `https://github.com/em1e/42_ft_irc`, `ft_irc`)">ft_irc</div>');
             //addLine('<div id="project_button" onclick="openProjectInfo(`<h2>so_long</h2><p>Details about the 2D game...</p>`, `https://github.com/em1e/42_so_long`, `so_long`)">so_long</div>');
             //addLine('<div id="project_button" onclick="openProjectInfo(`<h2>minishell</h2><p>Details about the Bash rewrite...</p>`, `https://github.com/em1e/42_minishell`, `minishell`)">minishell</div>');
             addLine("");
