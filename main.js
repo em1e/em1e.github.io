@@ -55,7 +55,7 @@ function openProjectInfo(content, link, videoType) {
     
     let videoElement = document.createElement("video");
     videoElement.setAttribute("controls", "controls");
-    // videoElement.setAttribute("autoplay", "autoplay");
+    videoElement.setAttribute("autoplay", "autoplay");
     // videoElement.setAttribute("loop", "loop");
     videoElement.setAttribute("muted", "muted");
     videoElement.classList.add("project-video");
@@ -130,7 +130,7 @@ function executeCommand(command) {
         case "about":
             addLine("");
             addLine('<h2 style="color: #cd6858;">About me:</h2>');
-            addLine("Hey there! 👋 I'm Vilja, a 21 year old software engineering student at Hive Helsinki. There I learned C and C++ through multiple complex projects, and the unique peer to peer model has given me a lot of experience with code reviews, asking the right questions, team and project management as well as allowed me to share what I have learned with others.");
+            addLine("Hey there! I'm Vilja, a 21 year old software engineering student at Hive Helsinki. I learned C and C++ through multiple complex projects there, and its unique peer to peer model has given me a lot of experience with code reviews, asking the right questions, team and project management as well as allowed me to share what I have learned with others.");
             addLine('<br><h3 style="color: #4c2229;">Skills:</h3>');
             addLine("C, C++, Java, JavaScript, HTML, CSS, Git, Bash, Shell scripting");
             addLine("");

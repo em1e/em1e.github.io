@@ -10,8 +10,16 @@
     <div id="terminal">
         <div id="terminal-output"></div>
         <div id="input-container">
-            <span id="prompt">portfolio.sh ></span>
-            <input type="text" id="input" autofocus spellcheck="false" autocomplete="off">
+            <span id="prompt">portfolio.sh $</span>
+            <input type="text" id="input" list="suggestions" autofocus spellcheck="false" autocomplete="off">
+            <datalist id="suggestions" class="autocomplete-suggestions">
+                <option value="help">
+                <option value="about">
+                <option value="projects">
+                <option value="socials">
+                <option value="clear">
+                <option value="contact">
+            </datalist>
         </div>
     </div>
     <div id="project-info" class="project-info">
