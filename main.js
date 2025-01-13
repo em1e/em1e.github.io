@@ -145,7 +145,7 @@ function executeCommand(command) {
             break;
         case "contact":
             addLine('<br><h3 style="color: #4c2229;">Contact:</h3>');
-            addLine("You can reach me through emie.codes@outlook.com.");
+            addLine("You can reach me through emie.codes@outlook.com, or the email on my CV (if you're one of the 200+ lucky ones who has that already).");
             addLine("");
             break;
         case "socials":
