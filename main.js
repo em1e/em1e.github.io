@@ -67,22 +67,22 @@ function openProjectInfo(content, link, videoType) {
             videoElement.src = "https://github.com/em1e/em1e.github.io/raw/main/cub3d_video.mp4";
             videoElement.poster = "";
             description.textContent = "Cub3D is all about bringing that classic raycasting game feeling to life. It\’s a fun way to dive into the world of graphic design while figuring out how math fits into computer graphics. I did a lot of research beforehand, which helped us later on to make a 2D space feel like a 3D world more easily. That being said I'd argue cub3D isn\’t just any project; it\’s a creative playground where coding and math team up to create an awesome interactive experience!";
-            videoCaption.textContent = "A Gameplay video demonstrating core mechanics:";
+            videoCaption.textContent = "Here is a video demonstrating core mechanics:";
             break;
         case "ft_irc":
             videoElement.src = "https://github.com/em1e/em1e.github.io/raw/main/ft_irc_video.mp4";
-            description.textContent = "ft_irc is a project where me and two other students worked together to create a fully functioning irc server, according to the RFC 1459 proticol.";
+            description.textContent = "ft_irc is a project where me and two other students worked together to create a fully functioning irc server, according to the RFC 1459 protocol.";
             videoCaption.textContent = "Here is a video demonstrating core mechanics:";
             break;
         case "so_long":
             videoElement.src = "https://github.com/em1e/em1e.github.io/raw/main/so_long_video.mp4";
-            description.textContent = "C Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent in tincidunt lectus. Nullam pharetra sem eu felis fermentum, a auctor augue vulputate. Integer scelerisque neque sit amet arcu viverra, sed vulputate turpis auctor. Proin non mi neque. Sed id sem nec velit lacinia ullamcorper. Integer pretium neque a malesuada efficitur.";
-            videoCaption.textContent = "C Gameplay video demonstrating core mechanics:";
+            description.textContent = "So long is a simple 2D game written in c. It's purpose is to familiralize yourself with game mechanics, mlx42 library as well as managing larger scale projects. This project includes animations, killing monsters, collecting treasures and trying to find your way out of the dungeon.";
+            videoCaption.textContent = "Here is a video demonstrating core mechanics:";
             break;
         case "minishell":
             videoElement.src = "https://github.com/em1e/em1e.github.io/raw/main/minishell_video.mp4";
-            description.textContent = "D Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent in tincidunt lectus. Nullam pharetra sem eu felis fermentum, a auctor augue vulputate. Integer scelerisque neque sit amet arcu viverra, sed vulputate turpis auctor. Proin non mi neque. Sed id sem nec velit lacinia ullamcorper. Integer pretium neque a malesuada efficitur.";
-            videoCaption.textContent = "D Gameplay video demonstrating core mechanics:";
+            description.textContent = "Minishell is a recreation of `bash`, designed to help you understand how command-line interpreters work. With this shell, you can execute commands, handle piping (`|`), redirection (`>`), and environment variable management, mimicking the behavior of Bash. Additionally, it supports handling signals, handling `exit` commands, and more, making it a small but powerful shell.";
+            videoCaption.textContent = "Here is a video demonstrating core mechanics:";
             break;
     }
     
