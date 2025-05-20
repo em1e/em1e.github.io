@@ -130,9 +130,9 @@ function executeCommand(command) {
         case "about":
             addLine("");
             addLine('<h2 style="color: #cd6858;">About me:</h2>');
-            addLine("Hey there! I'm Vilja, a 21 year old software engineering student at Hive Helsinki. I learned C and C++ through multiple complex projects there, and its unique peer to peer model has given me a lot of experience with code reviews, asking the right questions, team and project management as well as allowed me to share what I have learned with others.");
+            addLine("Hey there! I'm Vilja, a 22 year old software development student at Hive Helsinki. I learned C and C++ through multiple complex projects there, and its unique peer to peer model has given me a lot of experience with code reviews, asking the right questions, team and project management as well as allowed me to share what I have learned with others.");
             addLine('<br><h3 style="color: #4c2229;">Skills:</h3>');
-            addLine("C, C++, Java, JavaScript, HTML, CSS, Git, Bash, Shell scripting");
+            addLine("C, C++, Java, Python, JavaScript, HTML, CSS, Git, Bash, Shell scripting");
             addLine("");
             break;
         case "projects":
@@ -151,7 +151,7 @@ function executeCommand(command) {
         case "socials":
             addLine('<br><h3 style="color: #4c2229;">Socials:</h3>');
             addLine('<a href="https://discordapp.com/users/700341252880597095" target="_blank">Discord</a> - DM me if you dare! (swear I don\'t bite) <br>');
-            addLine('<a href="https://github.com/em1e" target="_blank">GitHub</a> - Do check it out. <br>');
+            addLine('<a href="https://github.com/em1e" target="_blank">GitHub</a> - Do check it out if you haven\'t. <br>');
             addLine("");
             break;
         case "clear":
